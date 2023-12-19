@@ -6,11 +6,7 @@ class Solution {
             int res = Integer.parseInt(str.substring(s, s + l));
             if(res > k) list.add(res);
         }
-        int[] answer = new int[list.size()];
-        int n = 0;
-        for(int i : list){
-            answer[n++] = i;
-        }
-        return answer;
+
+        return list.stream().mapToInt(i -> i).toArray();
     }
 }
