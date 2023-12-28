@@ -1,21 +1,20 @@
 import java.util.*;
 class Solution {
     public int[] solution(int[] arr, int k) {
+        int[] answer = new int[k];
         ArrayList <Integer> list = new ArrayList<>();
-        for(int i = 0; i<arr.length; i++){
-            if(!list.contains(arr[i])) list.add(arr[i]);
+        for (int i = 0; i < k; i++) {
+            answer[i] = -1;
         }
-        System.out.println(list);
         
-        if(list.size() > k) {
-            while(list.size() != k) list.remove(list.size() - 1);
+        int cnt = 0;
+        for(int i = 0; i<arr.length; i++){
+            if(!list.contains(arr[i])) {
+                answer[cnt++] = arr[i];
+                list.add(arr[i]);
+            }
+            if(list.size() == k) break;
         }
-        else if(list.size() < k){
-            while(list.size() != k) list.add(-1);
-        }
-        int[] answer = new int[list.size()];
-        int i = 0;
-        for(int n : list) answer[i++] = n;
         return answer;
     }
 }
