@@ -1,25 +1,20 @@
-import java.util.*;
 class Solution {
     public int solution(int[] arr) {
-        int answer = 0, check = 0;
-        int before[], after[];
+        int answer = 0;
+
         while(true){
-            before = Arrays.copyOf(arr, arr.length);
+            boolean flag = false;
             for(int i = 0; i<arr.length; i++){
-                if(arr[i] >= 50 && arr[i]%2 == 0) arr[i] = arr[i] / 2;
-                else if(arr[i] < 50 && arr[i]%2 == 1) arr[i] = (arr[i] * 2) + 1;
-            }
-            after = Arrays.copyOf(arr, arr.length);
-            for(int j = 0; j<arr.length; j++) {
-                if(before[j] == after[j]) {
-                    if(j == arr.length -1){
-                        check++;
-                        break;
-                    }
+                if(arr[i]>=50 && arr[i] % 2 == 0) {
+                    arr[i] /= 2;
+                    flag = true;
                 }
-                else break;
+                else if(arr[i] <50 && arr[i] %2 ==1) {
+                    arr[i] = (arr[i] * 2) + 1;
+                    flag = true;
+                }  
             }
-            if(check != 0) break;
+            if(!flag) break;
             answer++;
         }
         return answer;
