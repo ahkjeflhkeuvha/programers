@@ -8,9 +8,7 @@ class Solution {
                 n/=i;
             }
         }
-        int[] answer = new int[list.size()];
-        int idx = 0;
-        for(int num : list) answer[idx++] = num;
-        return answer;
+        int answer[];
+        return answer = list.stream().mapToInt(i->i).toArray();
     }
 }
