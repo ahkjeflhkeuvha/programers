@@ -2,12 +2,11 @@ import java.util.*;
 class Solution {
     public int[] solution(int k, int[] score) {
         int[] answer = new int[score.length];
-        ArrayList <Integer> list = new ArrayList<>();
+        PriorityQueue <Integer> q = new PriorityQueue<>();
         for(int i = 0; i<score.length; i++){
-            list.add(score[i]);
-            Collections.sort(list);
-            if(i - k < 0) answer[i] = list.get(0);
-            else answer[i] = list.get(i - k + 1);
+            q.add(score[i]);
+            if(q.size() > k) q.poll();
+            answer[i] = q.peek();
         }
         return answer;
     }
