@@ -1,11 +1,11 @@
 class Solution {
     public int solution(int n) {
-        int answer = 0, bin = n + 1, binCnt = 0;
+        int answer = 0, bin = n, binCnt = 0;
         int cnt = Integer.bitCount(n);
         while(binCnt != cnt){
-            binCnt = Integer.bitCount(bin);
             bin++;
+            binCnt = Integer.bitCount(bin);
         }
-        return answer = bin - 1;
+        return answer = bin;
     }
 }
