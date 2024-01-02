@@ -7,9 +7,6 @@ class Solution {
                 if(i != j && !list.contains(numbers[i]+numbers[j])) list.add(numbers[i]+numbers[j]);
         
         Collections.sort(list);
-        int[] answer = new int[list.size()];
-        int i = 0;
-        for(int n : list) answer[i++] = n;
-        return answer;
+        return list.stream().mapToInt(i->i).toArray();
     }
 }
