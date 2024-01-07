@@ -6,7 +6,6 @@ class Solution {
             if(arr[i]%divisor == 0) list.add(arr[i]);
         }
         if(list.size() == 0) list.add(-1);
-        Collections.sort(list);
-        return list.stream().mapToInt(i->i).toArray();
+        return list.stream().mapToInt(i->i).sorted().toArray();
     }
 }
