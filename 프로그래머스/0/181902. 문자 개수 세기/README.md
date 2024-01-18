@@ -1,6 +1,6 @@
 # [level 0] 문자 개수 세기 - 181902 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181902?language=javascript) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181902) 
 
 ### 성능 요약
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2024년 1월 4일 11:6:36
+2024년 1월 4일 11:8:26
 
 ### 문제 설명
 
