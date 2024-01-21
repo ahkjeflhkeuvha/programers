@@ -1,5 +1,3 @@
 function solution(n) {
-    var answer = 0;
-    String(n).split("").forEach((i) => {answer += Number(i)});
-    return answer;
+    return n.toString().split("").reduce((a, b) => (a + Number(b)), 0);
 }
