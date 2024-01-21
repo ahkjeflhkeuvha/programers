@@ -1,6 +1,6 @@
 # [level 0] 로그인 성공? - 120883 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120883?language=javascript) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120883) 
 
 ### 성능 요약
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2024년 1월 0일 10:55:19
+2024년 1월 0일 10:57:58
 
 ### 문제 설명
 
