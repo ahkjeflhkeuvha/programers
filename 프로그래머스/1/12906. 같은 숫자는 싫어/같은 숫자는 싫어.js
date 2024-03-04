@@ -1,4 +1,14 @@
 function solution(arr)
 {
-    return arr.filter((val, idx) => val != arr[idx+1]);
+    var answer = [];
+    
+    arr.forEach((val, idx) => {
+        if(check(val, idx, [...arr])) answer.push(val);
+    })
+    return answer;
+}
+
+function check(val, idx, arr){
+    if(val != arr[idx + 1]) return true;
+    else return false;
 }
