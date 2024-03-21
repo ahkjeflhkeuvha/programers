@@ -1,10 +1,10 @@
 # [level 0] 특정 문자 제거하기 - 120826 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120826?language=kotlin) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120826) 
 
 ### 성능 요약
 
-메모리: 60.6 MB, 시간: 13.23 ms
+메모리: 58.9 MB, 시간: 0.07 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2024년 03월 21일 21:00:19
+2024년 03월 21일 21:02:01
 
 ### 문제 설명
 
