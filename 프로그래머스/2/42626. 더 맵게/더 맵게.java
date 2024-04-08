@@ -7,15 +7,11 @@ class Solution {
             heap.add(scoville[i]);
         }
         
-        while(heap.peek() < K){
-            if(heap.size() >= 2) heap.add(heap.poll() + (heap.poll() * 2));
+        while(heap.size() > 1 && heap.peek() < K){
+            heap.add(heap.poll() + (heap.poll() * 2));
             answer++;
-            if(heap.size() == 1 && heap.peek() < K) {
-                answer = -1;
-                break;
-            }
         }
         
-        return answer;
+        return (heap.size() <= 1 && heap.peek() < K) ? -1 : answer;
     }
 }
