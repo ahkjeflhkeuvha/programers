@@ -5,11 +5,8 @@ class Solution {
         int max = array[0], cnt = 0;
         
         for(int i = 0; i<array.length; i++){
-            if(hash.containsKey(array[i])) {
-                hash.put(array[i], hash.get(array[i])+1);
-                if(hash.get(max) < hash.get(array[i])) max = array[i];
-            }
-            else hash.put(array[i], 1);
+            hash.put(array[i], hash.getOrDefault(array[i], 0) + 1);
+            if(hash.get(max) < hash.get(array[i])) max = array[i];
         }
         
         for(int i : hash.keySet()){
