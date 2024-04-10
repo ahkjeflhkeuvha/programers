@@ -1,20 +1,21 @@
 import java.util.*;
 class Solution {
     public int solution(int[] array) {
-        int answer = 0;
-        int maxCount = 0;
-        Map<Integer, Integer> map = new HashMap<>();
-        for(int number : array){
-            int count = map.getOrDefault(number, 0) + 1;
-            if(count > maxCount){
-                maxCount = count;
-                answer = number;
+        HashMap<Integer, Integer> hash = new HashMap<>();
+        int max = array[0], cnt = 0;
+        
+        for(int i = 0; i<array.length; i++){
+            if(hash.containsKey(array[i])) {
+                hash.put(array[i], hash.get(array[i])+1);
+                if(hash.get(max) < hash.get(array[i])) max = array[i];
             }
-            else  if(count == maxCount){
-                answer = -1;
-            }
-            map.put(number, count);
+            else hash.put(array[i], 1);
         }
-        return answer;
+        
+        for(int i : hash.keySet()){
+            if(hash.get(i) == hash.get(max)) cnt++;
+        }
+        
+        return cnt > 1 ? -1 : max;
     }
 }
