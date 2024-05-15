@@ -1,30 +1,36 @@
 import java.util.*;
+import java.util.stream.*;
+
 class Solution {
+    private static final String ENTER_FORMAT = "%s님이 들어왔습니다.";
+    private static final String LEAVE_FORMAT = "%s님이 나갔습니다.";
+
+    private void createOrUpdateInfo(Map<String, String> userMap, String messages){
+        String userid = messages.split(" ")[1];
+        String username = messages.split(" ")[2];
+        
+        userMap.put(userid, username);
+    }
+    
+    private String formateString(Map<String, String> userMap, String messages){
+        String mode = messages.split(" ")[0];
+        String userid = messages.split(" ")[1];
+        
+        if(mode.equals("Enter")) return String.format(ENTER_FORMAT, userMap.get(userid));
+        else if(mode.equals("Leave")) return String.format(LEAVE_FORMAT, userMap.get(userid));
+        else return "";
+    }
+    
     public String[] solution(String[] record) {
-        ArrayList<String> list = new ArrayList<>();
-        HashMap<String, String> map = new HashMap<>();
+        Map<String, String> userMap = new HashMap();
+
+        Stream.of(record)
+            .filter(o -> o.startsWith("Enter") || o.startsWith("Change")) // Enter나 Change로 시작하는 문자열 찾기
+            .forEach(o -> createOrUpdateInfo(userMap, o)); // createOrUpdateInfo로 보내기 
         
-        for(int i = 0; i<record.length; i++){
-            String strArr[] = record[i].split(" ");
-            
-            if(strArr[0].equals("Leave")) continue;
-            else map.put(strArr[1], strArr[2]);
-        }
-        // System.out.println(map);
-        
-        for(int i = 0, j = 0; i<record.length; i++){
-            String strArr[] = record[i].split(" ");
-            
-            if(strArr[0].equals("Leave")) list.add(map.get(strArr[1]) + "님이 나갔습니다.");
-            else if (strArr[0].equals("Enter")) list.add(map.get(strArr[1]) + "님이 들어왔습니다.");
-        }
-        
-        // System.out.println(list);
-        String answer[] = new String[list.size()];
-        int i = 0;
-        for(String str : list){
-            answer[i++] = str;
-        }
-        return answer;
+        return Stream.of(record)
+            .map(o -> formateString(userMap, o))
+            .filter(o -> !"".equals(o))
+            .toArray(String[]::new);
     }
 }
