@@ -1,16 +1,11 @@
-function solution(n, m, section) {
+function solution(n, m, sections) {
     var answer = 0;
-
-    var i = section[0] - 1
-  
-    while(i < n){
-        if(section.includes(i+1)){
-            answer += 1
-            i += m
-        } 
-        else i+=1
+    var painted = 0;
+    for(var section of sections) {
+        if(painted < section) {
+            answer++;
+            painted = section+m-1;
+        }
     }
-        
-
     return answer;
 }
