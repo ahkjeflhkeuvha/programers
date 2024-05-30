@@ -1,5 +1,4 @@
 function solution(number, limit, power) {
-    var divisorArr = []
     var tot = 0
     
     for(var i = 1; i<=number; i++){
