@@ -1,28 +1,29 @@
 import java.util.*;
 
 class Solution {
-    static String strArr[] = {"A", "E", "I", "O", "U"};
-    static ArrayList<String> list;
+    static int answer = 0;
+    static String[] words = {"A", "E", "I", "O", "U"};
+    static int count = 0;
     
     public int solution(String word) {
-        list = new ArrayList<>();
-        int answer = 0;
-        ExSearch("", 0);
-        
-        for(int i = 0; i<list.size(); i++){
-            if(list.get(i).equals(word)) {
-                answer = i;
-                break;
-            }
-        }
+        answer = 0;
+        count = 0;
+        dfs(words, "", word);
         return answer;
     }
-    static void ExSearch(String str, int idx){
-        list.add(str);
-        if(str.length() == 5) return;
-        for(int i = 0; i<5; i++){
-            ExSearch(str + strArr[i], idx + 1);
+    
+    public void dfs(String[] words, String str, String word){
+        if(str.length() > 5) return; // 단어 길이를 5로 제한
+        
+        if(str.equals(word)) {
+            answer = count;
+            return;
+        }
+        
+        count++; // 각 조합에 대해 카운트를 증가
+        
+        for(int i = 0; i < 5; i++) {
+            dfs(words, str + words[i], word);
         }
     }
 }
-
