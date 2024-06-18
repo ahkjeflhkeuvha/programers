@@ -1,9 +1,13 @@
 function solution(arr) {
-    let num = 1;
-    while(num < arr.length) num *= 2;
-    
-    for(let i = 0; i<num; i++){
-        if(arr[i] === undefined) arr.push(0)
+    let i = 0;
+    while (arr.length > Math.pow(2, i)) {
+        i++;
     }
-    return arr;
+
+    let padLength = Math.pow(2, i);
+    let padArr = new Array(padLength).fill(0);
+    for (let j = 0; j < arr.length; j++) {
+        padArr[j] = arr[j];
+    }
+    return padArr;
 }
