@@ -4,10 +4,13 @@ def solution(sequence, k):
     n = len(sequence)
     left, right = 0, 0
     cur_sum = sequence[0]
+    min_len = float('inf')
     
     while right < n:
         if cur_sum == k:
-            answer.append([left, right])
+            if right - left < min_len:
+                min_len = right - left
+                answer = [left, right]
         if cur_sum >= k:
             cur_sum -= sequence[left]
             left += 1
@@ -18,4 +21,4 @@ def solution(sequence, k):
             
     
     
-    return sorted(answer, key=lambda x: x[1] - x[0])[0]
+    return answer
