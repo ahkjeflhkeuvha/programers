@@ -1,10 +1,10 @@
 # [level 1] [PCCE 기출문제] 9번 / 이웃한 칸 - 250125 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/250125) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/250125?language=python3) 
 
 ### 성능 요약
 
-메모리: 78 MB, 시간: 0.02 ms
+메모리: 10.1 MB, 시간: 0.01 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2024년 04월 07일 19:07:45
+2025년 01월 31일 12:25:35
 
 ### 문제 설명
 
