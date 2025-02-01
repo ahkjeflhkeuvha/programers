@@ -19,6 +19,4 @@ def solution(sequence, k):
             if right < len(sequence):
                 cur_sum += sequence[right]
             
-    
-    
     return answer
