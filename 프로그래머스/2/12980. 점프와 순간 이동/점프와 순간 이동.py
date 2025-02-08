@@ -1,8 +1,6 @@
 def solution(n):
-    ans = 0
-    
-    while n:
-        ans += n%2
-        n //= 2
+    # 101
+    # 110
+    # 1001110001000
 
-    return ans
+    return bin(n).count('1')
