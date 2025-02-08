@@ -11,11 +11,9 @@ def solution(priorities, location):
     while queue:
         idx, process = queue.popleft()
 
-        if any(process < data for data in priorities):
+        if any(process < data[1] for data in queue):
             queue.append([idx, process])
         else:
-            print(idx, process)
-            priorities[idx] = -1
             answer += 1
             
             if idx == location:
