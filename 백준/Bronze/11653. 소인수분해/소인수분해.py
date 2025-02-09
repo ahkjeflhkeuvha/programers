@@ -1,10 +1,15 @@
+import math
+
 n = int(input())
+d = 2
+sqrt = int(math.sqrt(n))
 
-l = []
-for i in range(2, n+1):
-    while n%i == 0:
-        l.append(i)
-        n //= i
-
-for num in l:
-    print(num)
+while d <= sqrt:
+    if n%d != 0:
+        d += 1
+    else:
+        print(d)
+        n //= d
+        
+if n > 1:
+    print(n)
