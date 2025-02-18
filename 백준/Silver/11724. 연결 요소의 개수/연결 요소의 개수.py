@@ -13,7 +13,7 @@ for _ in range(M):
 visited = [False]*N
 cnt = 0
 
-def dfs(graph, start):
+def bfs(graph, start):
     global visited 
     global cnt
 
@@ -22,17 +22,17 @@ def dfs(graph, start):
     cnt += 1
 
     while stack:
-        node = stack.pop()
+        node = stack.pop(0)
         for j in range(N):
             if graph[node][j] == 1 and not visited[j]:
                 visited[j] = True
                 stack.append(j)
 
 
-dfs(graph, 0)
+bfs(graph, 0)
 
 for i in range(N):
     if visited[i] == False:
-        dfs(graph, i)
+        bfs(graph, i)
 
 print(cnt)
