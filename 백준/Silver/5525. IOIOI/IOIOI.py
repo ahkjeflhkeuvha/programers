@@ -1,13 +1,22 @@
-Pn = int(input())
-P = 'IO'*Pn + 'I'
-N = int(input())
-S = input()
+import sys
 
-cnt = 0
+Pn = int(sys.stdin.readline().strip())
+N = int(sys.stdin.readline().strip())
+S = sys.stdin.readline().strip()
 
+pattern_length = 2 * Pn + 1
+count = 0
+i = 0
+pattern_count = 0 
 
-for i in range(0, N - (Pn*2 + 1) + 1):
-    if S[i:i+(Pn*2 + 1)] == P:
-        cnt += 1
+while i < N - 1:
+    if S[i:i+3] == "IOI":
+        pattern_count += 1 
+        if pattern_count >= Pn:
+            count += 1  
+        i += 2  
+    else:
+        pattern_count = 0 
+        i += 1
 
-print(cnt)
+print(count)
