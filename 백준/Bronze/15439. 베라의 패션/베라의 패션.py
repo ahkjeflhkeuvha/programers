@@ -1,0 +1,5 @@
+import math
+
+N = int(input().strip())
+
+print(N * (N-1))
